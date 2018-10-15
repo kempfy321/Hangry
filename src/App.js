@@ -1,28 +1,57 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import hangry_cat from './hangry_cat.jpg';
 import './App.css';
+import './index.css';
+import Api from './api.js'
 
 class App extends Component {
+
+
+componentDidMount() {
+      Api.getTodos()
+        .then(
+          (result) => {
+            this.setState({
+              todos: result,
+            });
+          },
+        )
+        console.log();
+    }
+
+
   render() {
     return (
       <div className="App">
         <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
+       <main>     
+        <img alt="angry cat" src={hangry_cat}></img>
+        <h1>Find somewhere to eat, MEOW!</h1>   
+        
+        <div id="food-type">
+          <div className="dropdown">
+            <button className="button">What are you craving?</button>
+            <div className="dropdown-content">
+              <a href="#">Pizza</a>
+              <a href="#">Burgers</a>
+              <a href="#">Chinese</a>
+            </div>
+          </div>
+        </div>
+        
+        <div id="surprise">
+          <button className="button">I can't decide; pick for me!</button>
+        </div>                
+      </main>
+
         </header>
       </div>
     );
   }
+
 }
+
+
+
 
 export default App;
