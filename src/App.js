@@ -6,28 +6,14 @@ import Api from './api.js'
 
 class App extends Component {
 
-
-componentDidMount() {
-      Api.getTodos()
-        .then(
-          (result) => {
-            this.setState({
-              todos: result,
-            });
-          },
-        )
-        console.log();
-    }
-
-
   render() {
     return (
       <div className="App">
         <header className="App-header">
-       <main>     
+       <main>
         <img alt="angry cat" src={hangry_cat}></img>
-        <h1>Find somewhere to eat, MEOW!</h1>   
-        
+        <h1>Find somewhere to eat, MEOW!</h1>
+
         <div id="food-type">
           <div className="dropdown">
             <button className="button">What are you craving?</button>
@@ -38,10 +24,10 @@ componentDidMount() {
             </div>
           </div>
         </div>
-        
+
         <div id="surprise">
-          <button className="button">I can't decide; pick for me!</button>
-        </div>                
+          <button className="button">"I can't decide; pick for me!"</button>
+        </div>
       </main>
 
         </header>
